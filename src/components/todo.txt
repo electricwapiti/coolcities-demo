@@ -30,3 +30,6 @@ Socials:
 
 Local resources:
 - markdown of list of resources by topic
+Field: resource
+-- sentence (rich text, max chars 100)
+-- link

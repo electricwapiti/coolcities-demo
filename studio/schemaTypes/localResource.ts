@@ -1,6 +1,6 @@
 import {defineType, defineField, defineArrayMember} from 'sanity'
 
-export const localResources = defineType({
+export const localResource = defineType({
   name: 'localResources',
   title: 'Local Resources',
   type: 'document',
@@ -8,9 +8,7 @@ export const localResources = defineType({
     defineField({
       name: 'topic',
       title: 'Topic',
-      description: 'A sentence describing the resource topic.',
       type: 'text',
-      rows: 2,
       validation: (rule) => rule.required(),
     }),
     defineField({
@@ -42,7 +40,4 @@ export const localResources = defineType({
       validation: (rule) => rule.required().min(1),
     }),
   ],
-  preview: {
-    select: {title: 'topic'},
-  },
 })

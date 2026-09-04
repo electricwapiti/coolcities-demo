@@ -1,8 +1,7 @@
-import {defineType, defineField} from 'sanity'
-
+import {defineField, defineType} from 'sanity'
 export const galleryEvent = defineType({
   name: 'galleryEvent',
-  title: 'Gallery Event',
+  title: 'Past Event',
   type: 'document',
   fields: [
     defineField({
@@ -14,18 +13,15 @@ export const galleryEvent = defineType({
     defineField({
       name: 'image',
       title: 'Image',
-      type: 'image',
-      options: {hotspot: true},
-      validation: (rule) => rule.required(),
+      type: 'array',
+      of: [{type: 'image'}],
+      validation: (rule) => rule.required().min(1),
     }),
     defineField({
-      name: 'description',
-      title: 'Description',
-      type: 'text',
-      rows: 3,
+      name: 'desc',
+      title: 'Desc',
+      type: 'string',
+      validation: (rule) => rule.required(),
     }),
   ],
-  preview: {
-    select: {title: 'title', media: 'image', subtitle: 'description'},
-  },
 })

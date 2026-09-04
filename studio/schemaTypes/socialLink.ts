@@ -13,9 +13,7 @@ export const socialLink = defineType({
         list: [
           {title: 'Facebook', value: 'facebook'},
           {title: 'Instagram', value: 'instagram'},
-          {title: 'LinkedIn', value: 'linkedin'},
-          {title: 'YouTube', value: 'youtube'},
-          {title: 'Other', value: 'other'},
+          {title: 'Email', value: 'email'},
         ],
       },
       validation: (rule) => rule.required(),
@@ -25,7 +23,7 @@ export const socialLink = defineType({
       title: 'URL',
       type: 'url',
       validation: (rule) =>
-        rule.required().uri({scheme: ['http', 'https'], allowRelative: false}),
+        rule.required().uri({scheme: ['http', 'https','mailto'], allowRelative: false}),
     }),
   ],
   preview: {

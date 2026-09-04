@@ -19,7 +19,4 @@ export const newsletter = defineType({
       validation: (rule) => rule.required(),
     }),
   ],
-  preview: {
-    select: {title: 'title'},
-  },
 })
