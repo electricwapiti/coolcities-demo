@@ -1,0 +1,32 @@
+TODO for components
+
+Header component:
+- Logo
+- Organization name
+- Link row of other pages
+
+Footer component:
+- Call to action
+- Link to newsletter / volunteer Google Form
+- Organization Name
+
+Event component:
+- Date -text
+- Time -text
+- Title -text
+- rich text for content - Sanity handles json
+Important: make sure this is XSS-secure
+
+Gallery event: 
+- image
+- desc (txt)
+postcard look
+
+Newsletter: 
+- text which opens as PDF when clicked
+
+Socials: 
+- linear chip
+
+Local resources:
+- markdown of list of resources by topic
