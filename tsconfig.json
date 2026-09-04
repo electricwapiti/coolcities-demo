@@ -2,6 +2,7 @@
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
     "allowJs": true,
+    "types": ["@sanity/astro/module"],
     "paths": {
       "~/*": ["./src/*"]
     }

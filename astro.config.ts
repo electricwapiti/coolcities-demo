@@ -1,5 +1,6 @@
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { loadEnv } from 'vite';
 
 import { defineConfig, fontProviders } from 'astro/config';
 
@@ -12,12 +13,16 @@ import partytown from '@astrojs/partytown';
 import icon from 'astro-icon';
 import compress from 'astro-compress';
 import type { AstroIntegration } from 'astro';
+import sanity from '@sanity/astro';
 
 import astrowind from './vendor/integration';
 
 import { readingTimeRemarkPlugin, responsiveTablesRehypePlugin } from './src/utils/frontmatter';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const env = loadEnv(process.env.NODE_ENV ?? 'development', process.cwd(), '');
+const sanityProjectId = env.PUBLIC_SANITY_PROJECT_ID || env.PUBLIC_SANITY_STUDIO_PROJECT_ID;
+const sanityDataset = env.PUBLIC_SANITY_DATASET || env.PUBLIC_SANITY_STUDIO_DATASET;
 
 const hasExternalScripts = false;
 const whenExternalScripts = (items: (() => AstroIntegration) | (() => AstroIntegration)[] = []) =>
@@ -49,6 +54,11 @@ export default defineConfig({
   ],
 
   integrations: [
+    sanity({
+      projectId: sanityProjectId,
+      dataset: sanityDataset,
+      useCdn: false,
+    }),
     sitemap(),
     mdx(),
     icon({
